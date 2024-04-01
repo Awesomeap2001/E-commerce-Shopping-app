@@ -17,13 +17,13 @@ const ShopContextProvider = (props) => {
 
 
     const fetchAllProducts = async () => {
-        const res = await fetch("http://localhost:4000/allproducts")
+        const res = await fetch("https://shy-lime-cow-cuff.cyclic.app/allproducts")
         const data = await res.json();
         setAll_product(data)
     }
 
     const fetchCartData = async () => {
-        const res = await fetch("http://localhost:4000/getcart", {
+        const res = await fetch("https://shy-lime-cow-cuff.cyclic.app/getcart", {
             method: "POST",
             headers: {
                 Accept: "application/form-data",
@@ -50,7 +50,7 @@ const ShopContextProvider = (props) => {
         // console.log(`${itemId} added to cart`)
         // console.log(cartItems)
         if (localStorage.getItem('auth-token')) {
-            fetch("http://localhost:4000/addtocart", {
+            fetch("https://shy-lime-cow-cuff.cyclic.app/addtocart", {
                 method: "POST",
                 headers: {
                     Accept: "application/form-data",
@@ -69,7 +69,7 @@ const ShopContextProvider = (props) => {
     const removeFromCart = (itemId) => {
         setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }))
         if (localStorage.getItem('auth-token')) {
-            fetch("http://localhost:4000/removefromcart", {
+            fetch("https://shy-lime-cow-cuff.cyclic.app/removefromcart", {
                 method: "POST",
                 headers: {
                     Accept: "application/form-data",
